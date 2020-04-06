@@ -11,4 +11,10 @@ Baseado em uma tabela de caracteristicas de frutas o algoritmo determina
 | ------------- | ------- | ------- |
 | Python        | 3.7.7   |         |
 
-# Execução e teste
+## Exemplo de dados para teste
+| Peso | Textura | Fruta   |
+| ---- | ------- | ------- |
+| 150g | Solida  | Laranja |
+| 170g | Solida  | Laranja |
+| 140g | Macia   | Maça    |
+| 130g | Macia   | Maça    |
