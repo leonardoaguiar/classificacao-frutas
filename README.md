@@ -7,9 +7,10 @@ Baseado em uma tabela de caracteristicas de frutas o algoritmo determina
 
 ## Libs
 ### Utilizar estas versões no ambiente de desenvolvimento
-| Program / Lib | Version | Remarks |
-| ------------- | ------- | ------- |
-| Python        | 3.7.7   |         |
+| Program / Lib | Version      | Remarks |
+| ------------- | ------------ | ------- |
+| Python        | 3.7.7        |         |
+| scikit-learn  | 0.22.2.post1 |         |
 
 ## Exemplo de dados para teste
 | Peso | Textura | Fruta   |
