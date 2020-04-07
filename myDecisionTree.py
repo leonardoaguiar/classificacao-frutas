@@ -239,3 +239,12 @@ def find_best_split(rows):
 # print("Melhor ganho de informação: ", best_gain)
 # print("Melhor pergunta: ", best_question)
 #######
+
+class Leaf:
+    """Um nó (folha) de classificação de dados.
+    Ele segura um dicionário de classes (Ex. "Maçã") pelo número de vezes que
+    ele aparevce nas linhas do conjunto de dados que chegam a este nó (folha)
+    """
+
+    def __init__(self, rows):
+        self.predictions = class_counts(rows)
