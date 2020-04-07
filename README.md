@@ -23,6 +23,15 @@ Baseado em uma tabela de caracteristicas de frutas o algoritmo determina
 | 140g | Macia   | Maça    |
 | 130g | Macia   | Maça    |
 
+## Exemplo de dados de teste para o exemplo do minha arvore de decisão
+| Cor      | Diametro | Fruta |
+| -------- | -------- | ----- |
+| Verde    | 3        | Maçã  |
+| Amarelo  | 3        | Maçã  |
+| Vermelho | 1        | Uva   |
+| Vermelho | 1        | Uva   |
+| Amarelo  | 3        | Limão |
+
 ## Comandos úteis
 | comando    | Descrição                                 | Observações |
 | ---------- | ----------------------------------------- | ----------- |
