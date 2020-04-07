@@ -25,3 +25,19 @@ def unique_vals(rows, col):
 # print(unique_vals(training_data, 0)) # identifica os valores da primeira coluna
 # print(unique_vals(training_data, 1)) # identifica os valores da segunda coluna
 #######
+
+def class_counts(rows):
+    """Conta a quantidade de cada tipo de fruta na tabela de exemplo"""
+    counts = {}  # dicionário de frutas (labels) -> quantidade.
+    for row in rows:
+        # na tabel deste exemplo, a fruta (label) será sempre a última coluna
+        label = row[-1]
+        if label not in counts:
+            counts[label] = 0
+        counts[label] += 1
+    return counts
+
+
+#######
+# print(class_counts(training_data))
+#######
