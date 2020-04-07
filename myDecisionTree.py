@@ -117,3 +117,40 @@ def partition(rows, question):
 # Linhas que não contém cor vermelha.
 # print("Linhas sem vermelho: ", false_rows)
 #######
+
+def gini(rows):
+    """Calcula o Gini Impurity para a lista de linhas.
+    See: https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity
+    """
+    counts = class_counts(rows)
+    impurity = 1
+    for lbl in counts:
+        prob_of_lbl = counts[lbl] / float(len(rows))
+        impurity -= prob_of_lbl**2
+    return impurity
+
+
+#######
+# Alguns exemplos de como o Gini Impurity funciona.
+#
+# Primeiro, vamos ver um conjunto de dados iguais.
+# no_mixing = [['Maçã'], ['Maçã']]
+# irá retornar 0.0
+# print(gini(no_mixing))
+#
+# Agora, vamos ver um conjunto de dados 50:50 maçã:uva
+# some_mixing = [['Apple'], ['Orange']]
+# irá retornar 0.5 - indicando que existe uma chande de 50% de erro na
+# classificação.
+# print(gini(some_mixing))
+#
+# Agora, vamos ver um conjunto de dados com muitas características (labels)
+# diferentes.
+# lots_of_mixing = [['Maçã'],
+#                   ['Laranja'],
+#                   ['Uva'],
+#                   ['Pera'],
+#                   ['Banana']]
+# irá retornar 0.8
+# print(gini(lots_of_mixing))
+#######
