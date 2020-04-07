@@ -3,12 +3,28 @@
 # A última coluna é o label (rótulo).
 # As duas primeiras colunas são as características (features)..
 
+# Original
+# training_data = [
+#     ['Verde', 3, 'Maçã'],
+#     ['Amarelo', 3, 'Maçã'],
+#     ['Vermelho', 1, 'Uva'],
+#     ['Vermelho', 1, 'Uva'],
+#     ['Amarelo', 3, 'Limão'],
+# ]
+
 training_data = [
     ['Verde', 3, 'Maçã'],
+    ['Marrom', 2, 'Abacaxi'],
     ['Amarelo', 3, 'Maçã'],
     ['Vermelho', 1, 'Uva'],
+    ['Laranja', 7, 'Pera'],
     ['Vermelho', 1, 'Uva'],
     ['Amarelo', 3, 'Limão'],
+    ['Laranja', 5, 'Pera'],
+    ['Verde', 1, 'Abacaxi'],
+    ['Marrom', 8, 'Pera'],
+    ['Roxa', 2, 'Uva'],
+    ['Verde', 1, 'Uva'],
 ]
 
 # Nome das colunas.
@@ -353,8 +369,33 @@ def print_leaf(counts):
 
 #######
 # Exibindo de um jeito mais legal :)
-my_tree = build_tree(training_data)
-print(print_leaf(classify(training_data[0], my_tree)))
+# my_tree = build_tree(training_data)
+# print(print_leaf(classify(training_data[0], my_tree)))
 # No segundo exemplo, a acuracia é menor :(
-print(print_leaf(classify(training_data[1], my_tree)))
+# print(print_leaf(classify(training_data[1], my_tree)))
 #######
+
+
+# Estimando outros valores
+my_tree = build_tree(training_data)
+
+print_tree(my_tree)
+
+# Estimativa
+testing_data = [
+    ['Verde', 3, 'Maçã'],
+    ['Amarelo', 4, 'Maçã'],
+    ['Vermelho', 2, 'Uva'],
+    ['Vermelho', 1, 'Uva'],
+    ['Amarelo', 3, 'Limão'],
+    ['Laranja', 6, 'Pera'],
+    ['Laranja', 5, 'Pera'],
+    ['Marrom', 7, 'Pera'],
+    ['Marrom', 1, 'Abacaxi'],
+]
+
+for row in testing_data:
+    # Exibe o valor atual da primeira coluna dos dados de teste o valor que
+    # foi previsto pelo algoritmo.
+    print("Atual: %s. Previsto: %s" %
+          (row[-1], print_leaf(classify(row, my_tree))))
