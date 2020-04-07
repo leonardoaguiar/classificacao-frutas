@@ -248,3 +248,17 @@ class Leaf:
 
     def __init__(self, rows):
         self.predictions = class_counts(rows)
+
+
+class Decision_Node:
+    """Um nó de decião, que faz as perguntas.
+    Ele segura a referência para a pergunta e de duas nós filhos.
+    """
+
+    def __init__(self,
+                 question,
+                 true_branch,
+                 false_branch):
+        self.question = question
+        self.true_branch = true_branch
+        self.false_branch = false_branch
