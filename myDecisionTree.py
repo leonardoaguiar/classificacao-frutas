@@ -154,3 +154,48 @@ def gini(rows):
 # irá retornar 0.8
 # print(gini(lots_of_mixing))
 #######
+
+def info_gain(left, right, current_uncertainty):
+    """Information Gain.
+    A incerteza do nó inicial, subtraída da impureza ponderada (Gini Impurity)
+    dos dois nós filhos.
+    """
+    p = float(len(left)) / (len(left) + len(right))
+    return current_uncertainty - p * gini(left) - (1 - p) * gini(right)
+
+
+#######
+# Calculado a incerteza dos dados de treinamento
+# current_uncertainty = gini(training_data)
+# print("Incerteza dos dados de treinamento: ", current_uncertainty)
+#
+# Quanta informação podemos ganhar particionando os dados pela cor Verde?
+# true_rows, false_rows = partition(training_data, Question(0, 'Verde'))
+# learned = info_gain(true_rows, false_rows, current_uncertainty)
+# print("Quantidade de aprendizado pela cor verde: ", learned)
+#
+# E se separarmos os dados pela cor vermelha?
+# true_rows, false_rows = partition(training_data, Question(0, 'Vermelho'))
+# learned = info_gain(true_rows, false_rows, current_uncertainty)
+# print("Quantidade de aprendizado pela cor vermelha: ", learned)
+#
+# Parece que aprendemos mais usando a cor 'Vermelha' (0.37), do que a 'Verde' (0.14)
+# Porque? Vamos ver uma separação de dados diferentes e ver qual fica mais
+# embaralhada
+# true_rows, false_rows = partition(training_data, Question(0, 'Vermelho'))
+#
+# Aqui, as linhas verdadeiras só contém 'Uvas'.
+# print(true_rows)
+#
+# E nas linhas falsas contém dois tipos de frutas. Nada mal!
+# print(false_rows)
+#
+# Por outro lado, separar os dados pela cor verde não ajudaria muito.
+# true_rows, false_rows = partition(training_data, Question(0, 'Verde'))
+#
+# Nós isolamos uma maçã em uma linha verdadeira.
+# print(true_rows)
+#
+# Mas, as linhas falas estão mal arranjadas.
+# print(false_rows)
+#######
