@@ -341,3 +341,20 @@ def classify(row, node):
 # result = classify(training_data[0], my_tree)
 # print(result)
 #######
+
+
+def print_leaf(counts):
+    total = sum(counts.values()) * 1.0
+    probs = {}
+    for lbl in counts.keys():
+        probs[lbl] = str(int(counts[lbl] / total * 100)) + "%"
+    return probs
+
+
+#######
+# Exibindo de um jeito mais legal :)
+my_tree = build_tree(training_data)
+print(print_leaf(classify(training_data[0], my_tree)))
+# No segundo exemplo, a acuracia é menor :(
+print(print_leaf(classify(training_data[1], my_tree)))
+#######
