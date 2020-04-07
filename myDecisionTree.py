@@ -51,3 +51,45 @@ def is_numeric(value):
 # print(is_numeric(7))
 # print(is_numeric("Red"))
 #######
+
+class Question:
+    """A classe 'Question' será usada para particionar os dados de exemplo.
+    Esta classe só armazenará 'o número da coluna' (Ex. 0 para Cor) e o 
+    'valor da colona' (Ex. Verde). O método 'match' será usado para comparar
+    o valor da característica (feature) no exemplo com o valor da característica
+    armazenado na 'Question'.
+    """
+
+    def __init__(self, column, value):
+        self.column = column
+        self.value = value
+
+    def match(self, example):
+        # compara o valor da característica (feature) no exemplo com o valor
+        # da característica armazenado na 'Question'
+        val = example[self.column]
+        if is_numeric(val):
+            return val >= self.value
+        else:
+            return val == self.value
+
+    def __repr__(self):
+        # Imprime a pergunda de maneira legivel e amigavel para humanos.
+        condition = "=="
+        if is_numeric(self.value):
+            condition = ">="
+        return "%s %s %s?" % (
+            header[self.column], condition, str(self.value))
+
+
+#######
+# Exemplo de pergunta numérica
+# print(Question(1, 3))
+# Exemplo de pergunda de características
+# q = Question(0, 'Verde')
+# print(q)
+# Exemplo usados os dados de teste.
+# example = training_data[0]
+# ... verficando a resposta
+# print(q.match(example))
+#######
