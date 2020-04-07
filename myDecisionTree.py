@@ -293,3 +293,25 @@ def build_tree(rows):
     # Isto registrará a melhor característica para usar neste ponto,
     # assim como o ramo (branch) que deverá ser seguido dependendo da resposta
     return Decision_Node(question, true_branch, false_branch)
+
+
+def print_tree(node, spacing=""):
+    """Função para exibir a árvore de decisão."""
+
+    # Base: chegamos a uma folha
+    if isinstance(node, Leaf):
+        print(spacing + "Predict", node.predictions)
+        return
+
+    # Exibindo a pergunda deste nó
+    print(spacing + str(node.question))
+
+    # Chando esta função recursivamente para o ramo (branch) com valores
+    # verdadeiros
+    print(spacing + '--> True:')
+    print_tree(node.true_branch, spacing + "  ")
+
+    # Chando esta função recursivamente para o ramo (branch) com valores
+    # falsos
+    print(spacing + '--> False:')
+    print_tree(node.false_branch, spacing + "  ")
