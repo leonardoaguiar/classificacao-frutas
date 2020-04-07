@@ -41,3 +41,13 @@ def class_counts(rows):
 #######
 # print(class_counts(training_data))
 #######
+
+def is_numeric(value):
+    """Verifica se o valor é numérico."""
+    return isinstance(value, int) or isinstance(value, float)
+
+
+#######
+# print(is_numeric(7))
+# print(is_numeric("Red"))
+#######
