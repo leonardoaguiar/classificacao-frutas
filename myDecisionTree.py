@@ -199,3 +199,43 @@ def info_gain(left, right, current_uncertainty):
 # Mas, as linhas falas estão mal arranjadas.
 # print(false_rows)
 #######
+
+def find_best_split(rows):
+    """Encontra a melhor 'Question' para se fazer por iteração de cada
+    característica / valor e calcula o ganho de informação (info_gain)."""
+    best_gain = 0  # variável para armazenar o melhor ganho de informação.
+    best_question = None
+    current_uncertainty = gini(rows)
+    n_features = len(rows[0]) - 1
+
+    for col in range(n_features):
+
+        # pega valores únicas nas colunas
+        values = set([row[col] for row in rows])
+
+        for val in values:
+
+            question = Question(col, val)
+
+            # separação dos dados
+            true_rows, false_rows = partition(rows, question)
+
+            # Pula esta separação de dados se ela não for divisivel.
+            if len(true_rows) == 0 or len(false_rows) == 0:
+                continue
+
+            # Calcula o ganho de informação para esta separação de dados
+            gain = info_gain(true_rows, false_rows, current_uncertainty)
+
+            if gain >= best_gain:
+                best_gain, best_question = gain, question
+
+    return best_gain, best_question
+
+
+#######
+# Encontrando a melhor pergunta a ser feita primeiro para o conjunto de dados.
+# best_gain, best_question = find_best_split(training_data)
+# print("Melhor ganho de informação: ", best_gain)
+# print("Melhor pergunta: ", best_question)
+#######
