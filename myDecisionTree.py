@@ -93,3 +93,27 @@ class Question:
 # ... verficando a resposta
 # print(q.match(example))
 #######
+
+def partition(rows, question):
+    """Separação do conjunto de dados de exemplo.
+    Para cada linha na tabela de exemplo, será verificado a resposta da pergunta.
+    Se for verdadeira, então será adicionado a linha das verdadeiras. Do contrário,
+    será adicionado a linha das falsas.
+    """
+    true_rows, false_rows = [], []
+    for row in rows:
+        if question.match(row):
+            true_rows.append(row)
+        else:
+            false_rows.append(row)
+    return true_rows, false_rows
+
+
+#######
+# Exemplo de separação dos dados baseado na cor vermelha
+# true_rows, false_rows = partition(training_data, Question(0, 'Vermelho'))
+# Linhas que contém a cor vermelha.
+# print("Linhas com vermelho: ", true_rows)
+# Linhas que não contém cor vermelha.
+# print("Linhas sem vermelho: ", false_rows)
+#######
