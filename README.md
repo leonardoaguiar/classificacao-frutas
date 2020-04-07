@@ -7,10 +7,13 @@ Baseado em uma tabela de caracteristicas de frutas o algoritmo determina
 
 ## Libs
 ### Utilizar estas versões no ambiente de desenvolvimento
-| Program / Lib | Version      | Remarks |
-| ------------- | ------------ | ------- |
-| Python        | 3.7.7        |         |
-| scikit-learn  | 0.22.2.post1 |         |
+| Program / Lib       | Version      | Remarks |
+| ------------------- | ------------ | ------- |
+| Python              | 3.7.7        |         |
+| scikit-learn        | 0.22.2.post1 |         |
+| tensorflow-gpu      | 2.1.0        |         |
+| tensorflow-datasets | 2.1.0        |         |
+| matplotlib          | 3.2.1        |         |
 
 ## Exemplo de dados de teste para o exemplo de classificação de frutas
 | Peso | Textura | Fruta   |
