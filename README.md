@@ -12,7 +12,7 @@ Baseado em uma tabela de caracteristicas de frutas o algoritmo determina
 | Python        | 3.7.7        |         |
 | scikit-learn  | 0.22.2.post1 |         |
 
-## Exemplo de dados para teste
+## Exemplo de dados de teste para o exemplo de classificação de frutas
 | Peso | Textura | Fruta   |
 | ---- | ------- | ------- |
 | 150g | Solida  | Laranja |
