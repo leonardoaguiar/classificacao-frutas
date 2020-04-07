@@ -262,3 +262,34 @@ class Decision_Node:
         self.question = question
         self.true_branch = true_branch
         self.false_branch = false_branch
+
+
+def build_tree(rows):
+    """Construtor da árvore.
+    """
+
+    # Tenta separar o conjunto de dados para cada atributo único,
+    # calcula o ganho de informação e returna a pergunta que produzira o maior
+    # ganho de informação.
+    gain, question = find_best_split(rows)
+
+    # Base: sem ganho de informações
+    # Desde que não tenhamos mais perguntas,
+    # retornaremos uma folha.
+    if gain == 0:
+        return Leaf(rows)
+
+    # Se chegamos aqui, temos alguma característica (feature) útil para
+    # nos ajudar a particionar os dados.
+    true_rows, false_rows = partition(rows, question)
+
+    # Recursivamente construindo a árvore com os valores verdadeiros
+    true_branch = build_tree(true_rows)
+
+    # Recursivamente construindo a árvore com os valores falsos
+    false_branch = build_tree(false_rows)
+
+    # Returna o nó com a questão.
+    # Isto registrará a melhor característica para usar neste ponto,
+    # assim como o ramo (branch) que deverá ser seguido dependendo da resposta
+    return Decision_Node(question, true_branch, false_branch)
