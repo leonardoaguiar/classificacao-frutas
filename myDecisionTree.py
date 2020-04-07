@@ -315,3 +315,29 @@ def print_tree(node, spacing=""):
     # falsos
     print(spacing + '--> False:')
     print_tree(node.false_branch, spacing + "  ")
+
+
+def classify(row, node):
+    """Classificação."""
+
+    # Base: chegamos a uma folha
+    if isinstance(node, Leaf):
+        return node.predictions
+
+    # Decide quando seguir o ramo (branch) verdadeiro ou o falso.
+    # Compare the feature / value stored in the node,
+    # Compara as características armazenadas no nó com o exemplo que esta
+    # sendo considerado.
+    if node.question.match(row):
+        return classify(row, node.true_branch)
+    else:
+        return classify(row, node.false_branch)
+
+
+#######
+# A árvore de decisão prediz que a primeira linha do nosso conjunto de dados
+# é uma maçã com acurácia de 1 (100%).
+# my_tree = build_tree(training_data)
+# result = classify(training_data[0], my_tree)
+# print(result)
+#######
