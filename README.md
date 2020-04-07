@@ -22,3 +22,9 @@ Baseado em uma tabela de caracteristicas de frutas o algoritmo determina
 | 170g | Solida  | Laranja |
 | 140g | Macia   | Maça    |
 | 130g | Macia   | Maça    |
+
+## Comandos úteis
+| comando    | Descrição                                 | Observações |
+| ---------- | ----------------------------------------- | ----------- |
+| nvidia-smi | Visualizar a versão da lib CUDA instalada |             |
+
